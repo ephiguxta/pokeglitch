@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
   for(int i = init_check; i <= final_check; i++)
     checksum -= fgetc(file);
 
-  printf("checksum: 0x%x\n", checksum);
+  printf("checksum: 0x%02hhx\n", checksum);
 
   return 0;
 }
