@@ -5,22 +5,10 @@
 #define init_check 0x2598
 #define final_check 0x3522
 
-int main(int argc, char *argv[]) {
-  //Pega o caminho do arquivo que contém o
-  //arquivo *.sav, calcula o checksum dele
-  //e retorna o valor em formato 0xNN
-
+char checksum(char *save_path) {
+  // calcula o cheksum do *.sav e retorna o valor
   FILE *file;
-  //o checksum da geração 1 é um valor de 8 bits
-  char checksum = 0xff;
-
-  //salvando o caminho, para não ficar operando em
-  //argv o tempo todo.
-  char path_size = strlen(argv[1]);
-  char save_path[32];
-
-  //copiando argv[1] em save_path
-  strncpy(save_path, argv[1], path_size);
+  char check = 0;
 
   file = fopen(save_path, "r+b");
   if(!file){
@@ -31,14 +19,14 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  //o algorítmo de verificação começa no endereço
-  //0x2598 até o 0x3522 e copia o resultado em
-  //0x3523
+  // o algorítmo de verificação começa no endereço
+  // 0x2598 até o 0x3522 e copia o resultado em
+  // 0x3523
   fseek(file, init_check, SEEK_SET);
   for(int i = init_check; i <= final_check; i++)
-    checksum -= fgetc(file);
+    check -= fgetc(file);
 
-  printf("checksum: 0x%02hhx\n", checksum);
+  fclose(file);
 
-  return 0;
+  return check;
 }
