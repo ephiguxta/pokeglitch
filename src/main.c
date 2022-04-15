@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "checksum.h"
+#include "apply_patch.h"
 
 int main(int argc, char *argv[]) {
   //o checksum da geração 1 é um valor de 8 bits
@@ -18,7 +19,10 @@ int main(int argc, char *argv[]) {
 
   check = checksum(save_path);
 
-  printf("%02hhx\n", check);
+  //o valor do checksum é inserido no endereço 0x3523
+  apply_patch(save_path, check);
+
+  //printf("%02hhx\n", check);
 
   return 0;
 }
