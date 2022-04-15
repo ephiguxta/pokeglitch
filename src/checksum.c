@@ -8,7 +8,7 @@
 char checksum(char *save_path) {
   // calcula o cheksum do *.sav e retorna o valor
   FILE *file;
-  char check = 0;
+  unsigned char check = 255;
 
   file = fopen(save_path, "r+b");
   if(!file){
@@ -28,5 +28,5 @@ char checksum(char *save_path) {
 
   fclose(file);
 
-  return check;
+  return (char) check;
 }
