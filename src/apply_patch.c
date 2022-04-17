@@ -21,5 +21,7 @@ int apply_patch(char *save_path, unsigned char checksum) {
 
     fputc(checksum, file);
 
+    fclose(file);
+
     return 0;
 }

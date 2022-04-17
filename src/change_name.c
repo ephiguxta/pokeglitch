@@ -61,5 +61,7 @@ int change_name(char *save_path, char name[7]) {
     for(unsigned char i = 0; i < 7; i++)
         fputc(translated_name[i], file);
 
+    fclose(file);
+
     return 0;
 }
