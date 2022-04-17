@@ -17,7 +17,7 @@ $ main ../rom/pokemon_red.sav
 ```
 
 If you don't changed the line 25 in the main.c, the new player name is:
-`abcdefg`.
+`testing`.
 
 ### TODO
 

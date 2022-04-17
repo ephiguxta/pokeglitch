@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define init_check 0x2598
-#define final_check 0x3522
+#define final_check 0x3521
 
 char checksum(char *save_path) {
   // calcula o cheksum do *.sav e retorna o valor

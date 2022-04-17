@@ -17,7 +17,7 @@ $ main ../rom/pokemon_red.sav
 ```
 
 Se você não mudou a linha 25 do arquivo `main.c`, o novo do *player* será:
-`abcdefg`.
+`testing`.
 
 ### TODO
 

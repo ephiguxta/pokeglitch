@@ -18,11 +18,13 @@ int main(int argc, char *argv[]) {
   //copiando argv[1] em save_path
   strncpy(save_path, argv[1], path_size);
 
-  check = checksum(save_path);
-
-  char test_name[] = "abcdefg";
+  char test_name[] = "testing";
 
   change_name(argv[1], test_name);
+
+  check = checksum(save_path);
+
+  printf("[%x]\n", check);
 
   //o valor do checksum é inserido no endereço 0x3523
   apply_patch(save_path, check);

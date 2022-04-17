@@ -18,6 +18,7 @@ int apply_patch(char *save_path, unsigned char checksum) {
 
     //vai até o endereço do checksum e insere o valor
     fseek(file, checksum_addr, SEEK_SET);
+
     fputc(checksum, file);
 
     return 0;
