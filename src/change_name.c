@@ -1,21 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "open_file.h"
+
 #define name_size 7
 #define name_initial_addr 0x2598
 
 int change_name(char *save_path, char name[7]) {
     FILE *file;
 
-    file = fopen(save_path, "r+b");
-
-    if(!file) {
-        fprintf(stderr, "Não pôde abrir o arquivo!\n");
-        fprintf(stderr, "Caminho '%s' inexistente\n", \
-                save_path);
-
+    file = open_file(save_path);
+    if(!file)
         return 1;
-    }
 
     //o tamanho do nome tem o tamanho de 7 bytes
     char translated_name[name_size];

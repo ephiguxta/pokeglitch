@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "open_file.h"
+
 #define init_check 0x2598
 #define final_check 0x3521
 
@@ -10,14 +12,9 @@ char checksum(char *save_path) {
   FILE *file;
   unsigned char check = 255;
 
-  file = fopen(save_path, "r+b");
-  if(!file){
-    fprintf(stderr, "Não pôde abrir o arquivo!\n");
-    fprintf(stderr, "Caminho '%s' inexistente\n", \
-        save_path);
-
-    return 1;
-  }
+  file = open_file(save_path);
+  if(!file)
+      return 1;
 
   // o algorítmo de verificação começa no endereço
   // 0x2598 até o 0x3522 e copia o resultado em
