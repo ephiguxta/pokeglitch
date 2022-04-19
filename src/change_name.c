@@ -13,19 +13,19 @@ int change_name(char *save_path, char name[7]) {
     if(!file)
         return 1;
 
-    //o tamanho do nome tem o tamanho de 7 bytes
+
+    //  the size of the name has 7 bytes
     char translated_name[name_size];
 
-    //faz a conversão do caractere ASCII para o formato
-    //usado no Pokémon Red.
+    //  it converts the ASCII character into the format used by Pokémon Red
     for(unsigned char j = 0; j <= name_size; j++){
-        //0x41 == 'A' em ASCII
+        //  0x41 == 'A' in ASCII
         if(name[j] >= 0x41 && name[j] <= 0x5A) {
             //mín: 0x80
             //max: 0x99
             translated_name[j] = (0x80 + (name[j] - 0x41));
 
-        //0x61 == 'a'
+        //  0x61 == 'a'
         } else if(name[j] >= 0x61 && name[j] <= 0x7A) {
             //mín: 0xa0
             //máx: 0xb9
@@ -43,11 +43,11 @@ int change_name(char *save_path, char name[7]) {
     //0x41 == 'A'
     //0x5A == 'Z'
     for(char i = 0x41; i <= 0x5A; i++) {
-        //mostrando um byte de j, com um tamanho fixo 2
+        //  it shows a j byte, as a fixed size of 2 
         printf("[%c - %02hhx]", i, j++);
 
-        //o salto de 'A' para 'a' na tabela ASCII resulta
-        //em 0x20 == 32 posições
+        //  the jump from 'A' to 'a' in the ASCII table result
+        //  in 0x20 == 32 positions
         printf("[%c - %02hhx]\n", (i + 0x20), k++);
     }
     */

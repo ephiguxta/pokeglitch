@@ -1,8 +1,8 @@
 ### pokeglitch
 
 Making some modifications in a Pokémon Red savegame.
-At the moment the tool can modify the player name.
-To make this change, you need to do the steps below:
+At the moment this tool can modify the player name.
+To make this change, you need to follow the steps below:
 
 ```bash
 $ cd src/
@@ -16,7 +16,7 @@ $ # if u r using mgba, the cmd below will works
 $ main ../rom/pokemon_red.sav
 ```
 
-If you don't changed the line 25 in the main.c, the new player name is:
+If you don't change the line 25 in the main.c, the new player name will be:
 `testing`.
 
 ### TODO

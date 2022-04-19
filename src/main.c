@@ -7,15 +7,15 @@
 #include "change_name.h"
 
 int main(int argc, char *argv[]) {
-  //o checksum da geração 1 é um valor de 8 bits
+  //  the checksum first generation is a 8 bits value
   char check;
 
-  //salvando o caminho, para não ficar operando em
-  //argv o tempo todo.
+  //  saving the path, so it doesn't operate in argv all the time
+
   char path_size = strlen(argv[1]);
   char save_path[32];
 
-  //copiando argv[1] em save_path
+  //  copy argv[1] in the save_path
   strncpy(save_path, argv[1], path_size);
 
   char test_name[] = "testing";
@@ -26,10 +26,10 @@ int main(int argc, char *argv[]) {
 
   printf("[%x]\n", check);
 
-  //o valor do checksum é inserido no endereço 0x3523
+  //  the checksum value is inserted at the adress 0x3523
   apply_patch(save_path, check);
 
-  //printf("%02hhx\n", check);
+  //  printf("%02hhx\n", check);
 
   return 0;
 }
