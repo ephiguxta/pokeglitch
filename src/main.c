@@ -5,6 +5,7 @@
 #include "checksum.h"
 #include "apply_patch.h"
 #include "change_name.h"
+#include "change_money.h"
 
 int main(int argc, char *argv[]) {
   //  the checksum first generation is a 8 bits value
@@ -21,6 +22,10 @@ int main(int argc, char *argv[]) {
   char test_name[] = "testing";
 
   change_name(argv[1], test_name);
+
+  char money[7] = "354555";
+  money[6] = '\0';
+  change_money(argv[1], money);
 
   check = checksum(save_path);
 

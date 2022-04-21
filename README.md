@@ -23,6 +23,6 @@ If you don't change the line 25 in the main.c, the new player name will be:
 
 - [ ] use getopts (unistd.h) to parse command-line params.
 
-- [ ] change player money.
+- [x] change player money.
 
 - [ ] ...
