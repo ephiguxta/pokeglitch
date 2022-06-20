@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 
   change_name(argv[1], test_name);
 
-  char money[7] = "354555";
+  char money[7] = "3535";
   money[6] = '\0';
   change_money(argv[1], money);
 

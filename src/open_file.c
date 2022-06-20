@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-FILE* open_file(char *save_path) {
+FILE* open_file(const char *save_path) {
 
     FILE *file = fopen(save_path, "r+b");
 

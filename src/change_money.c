@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "open_file.h"
 
 #define money_addr 0x25f3
 
-int change_money(char *save_path, char money[7]) {
+int change_money(const char *save_path, char money[7]) {
     FILE *file = open_file(save_path);
 
     if(!file)
@@ -12,9 +13,22 @@ int change_money(char *save_path, char money[7]) {
 
     fseek(file, money_addr, SEEK_SET);
 
+    int money_str_size = strlen(money);
+    // putting money value in the right order
+    // 35  = 000035, not 350000
+    // 123 = 000123, not 123000, etc...
+    if(money_str_size - 6 != 0) {
+      int total_mov = (6 - money_str_size);
+
+      for(int i = 0; i < money_str_size; i++) {
+        money[i + total_mov] = money[i];
+        money[i] = '0';
+      }
+    }
+
     unsigned char i, j;
     for(i = 0, j = 1; (i >= 0) && (i <= 5); i += 2, j += 2) {
-        printf("i:[%d] - j:[%d]\n", i, j);
+        printf("i:[%d] (%d) - j:[%d] (%d)\n", i, (money[i] - '0'), j, (money[j] - '0'));
 
         unsigned byte_parts;
         unsigned byte_sieve;
