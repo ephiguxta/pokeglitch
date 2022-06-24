@@ -6,7 +6,7 @@
 #define name_size 7
 #define name_initial_addr 0x2598
 
-int change_name(char *save_path, char name[7]) {
+int change_name(const char *save_path, char name[7]) {
     FILE *file;
 
     file = open_file(save_path);

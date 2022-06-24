@@ -7,7 +7,7 @@
 #define init_check 0x2598
 #define final_check 0x3521
 
-char checksum(char *save_path) {
+char checksum(const char *save_path) {
   //  calculate the cheksum of *.sav and return the value
   FILE *file;
   unsigned char check = 255;

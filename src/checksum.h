@@ -1,1 +1,1 @@
-char checksum(char *save_path);
+char checksum(const char *save_path);

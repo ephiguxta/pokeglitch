@@ -5,7 +5,7 @@
 
 #define checksum_addr 0x3523
 
-int apply_patch(char *save_path, unsigned char checksum) {
+int apply_patch(const char *save_path, unsigned char checksum) {
     FILE *file;
     
     file = open_file(save_path);

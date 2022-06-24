@@ -1,1 +1,1 @@
-unsigned char apply_patch(char *save_path, unsigned char checksum);
+unsigned char apply_patch(const char *save_path, unsigned char checksum);
