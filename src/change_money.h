@@ -1,1 +1,1 @@
-int change_money(const char *save_path, char money[7]);
+int change_money(const char *save_path, char money[6]);
