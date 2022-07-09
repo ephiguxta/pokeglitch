@@ -13,17 +13,17 @@ char checksum(const char *save_path) {
   unsigned char check = 255;
 
   file = open_file(save_path);
-  if(!file)
-      return 1;
+  if (!file)
+    return 1;
 
-  //  the verification algorithm starts at the adress 
+  //  the verification algorithm starts at the adress
   //  0x2598 to the  0x3522 and copy the result in
   //  0x3523
   fseek(file, init_check, SEEK_SET);
-  for(int i = init_check; i <= final_check; i++)
+  for (int i = init_check; i <= final_check; i++)
     check -= fgetc(file);
 
   fclose(file);
 
-  return (char) check;
+  return (char)check;
 }

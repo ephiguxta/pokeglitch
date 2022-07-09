@@ -11,16 +11,16 @@ int pokedex_seen_owned(const char *save_path, unsigned char pokenum) {
   // it is 0-based
   pokenum--;
 
-  if(!file)
+  if (!file)
     return 1;
 
   // get the offset bit of the pokémon in savegame
   int pokedex_addr;
-  
+
   // 001 = Bulbasaur
   // ...
   // 151 = Mew
-  if(pokenum <= 151){
+  if (pokenum <= 151) {
     // where byte part this pokémon is located?
     // dividing by 8 we can view the byte index from him
     pokedex_addr = pokedex_seen_addr + (pokenum / 8);
@@ -39,7 +39,7 @@ int pokedex_seen_owned(const char *save_path, unsigned char pokenum) {
 
   // enabling the right bit in this byte,
   // without change the old seen pokémons.
-  save_byte_part |= (0x01 << (pokenum % 8)); 
+  save_byte_part |= (0x01 << (pokenum % 8));
 
   fseek(file, pokedex_addr, SEEK_SET);
   printf("save_byte_part = %x\n", save_byte_part);

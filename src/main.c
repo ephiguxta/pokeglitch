@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "checksum.h"
 #include "apply_patch.h"
-#include "change_name.h"
 #include "change_money.h"
+#include "change_name.h"
+#include "checksum.h"
 #include "pokedex_seen_owned.h"
 
 int main(int argc, char *argv[argc + 1]) {
@@ -32,7 +32,7 @@ int main(int argc, char *argv[argc + 1]) {
 
   change_money(argv[1], money);
 
- // enabling scyther (index is 123) in pokédex seen
+  // enabling scyther (index is 123) in pokédex seen
   pokedex_seen_owned(argv[1], 123);
 
   check = checksum(save_path);

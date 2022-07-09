@@ -6,19 +6,19 @@
 #define checksum_addr 0x3523
 
 int apply_patch(const char *save_path, unsigned char checksum) {
-    FILE *file;
-    
-    file = open_file(save_path);
+  FILE *file;
 
-    if(!file)
-        return 1;
+  file = open_file(save_path);
 
-    //  it goes to the checksum address and inserts the value
-    fseek(file, checksum_addr, SEEK_SET);
+  if (!file)
+    return 1;
 
-    fputc(checksum, file);
+  //  it goes to the checksum address and inserts the value
+  fseek(file, checksum_addr, SEEK_SET);
 
-    fclose(file);
+  fputc(checksum, file);
 
-    return 0;
+  fclose(file);
+
+  return 0;
 }
