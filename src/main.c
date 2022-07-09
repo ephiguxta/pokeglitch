@@ -6,6 +6,7 @@
 #include "apply_patch.h"
 #include "change_name.h"
 #include "change_money.h"
+#include "pokedex_seen_owned.h"
 
 int main(int argc, char *argv[argc + 1]) {
   //  the checksum first generation is a 8 bits value
@@ -30,6 +31,9 @@ int main(int argc, char *argv[argc + 1]) {
   money[6] = '\0';
 
   change_money(argv[1], money);
+
+ // enabling scyther (index is 123) in pokédex seen
+  pokedex_seen_owned(argv[1], 123);
 
   check = checksum(save_path);
 
