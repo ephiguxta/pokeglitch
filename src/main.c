@@ -32,8 +32,8 @@ int main(int argc, char *argv[argc + 1]) {
 
   change_money(argv[1], money);
 
-  // enabling scyther (index is 123) in pokédex seen
-  pokedex_seen_owned(argv[1], 123);
+  // enabling Blastoise (index is 8) in pokédex seen
+  pokedex_seen_owned(argv[1], Blastoise);
 
   check = checksum(save_path);
 
