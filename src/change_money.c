@@ -16,7 +16,7 @@ int change_money(const char *save_path, char money[6]) {
 
   int money_str_size = strlen(money);
 
-  // putting money value in the right order
+  // putting money value in the correct order
   // 35  = 000035, not 350000
   // 123 = 000123, not 123000, etc...
   if (money_str_size - 6 != 0) {
@@ -38,14 +38,14 @@ int change_money(const char *save_path, char money[6]) {
 
     short temp_money[3] = {[2] = '\0'};
 
-    // slicing the money var in two parts, tree times
+    // slicing the variable of the money into two parts, three times
     // 2        1        0
     // ([5][4]) ([3][2]) ([1][0])
     //
     temp_money[1] = money[i] - '0';
     temp_money[0] = money[j] - '0';
 
-    //  transforming the value to an "equivalent" hex value
+    //  transforming the value to an "equivalent" hexadecimal value
     //  for example: [decimal 88] to [hexadecimal 88].
     //
     byte_parts = (0x0000000f & (temp_money[0] - '0'));
