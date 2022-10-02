@@ -14,18 +14,33 @@ int change_money(const char *save_path, char money[6]) {
   printf("[%s]\n", money);
   fseek(file, money_addr, SEEK_SET);
 
-  int money_str_size = strlen(money);
+  int total_mov = strnlen(money, 6);
 
   // putting money value in the correct order
   // 35  = 000035, not 350000
   // 123 = 000123, not 123000, etc...
-  if (money_str_size - 6 != 0) {
-    int total_mov = (6 - money_str_size);
+  if ( (total_mov >= 1) && (total_mov <= 6)) {
 
-    for (int i = 0; i < money_str_size; i++) {
-      money[i + total_mov] = money[i];
-      money[i] = '0';
-    }
+    // pointing to last valid char index
+    int i = (total_mov - 1);
+
+    // pointing to last index
+    int j = 5;
+
+    // moving chars to the right
+    for (; i >= 0; i--, j--)
+      money[j] = money[i];
+
+    // cleaning the old chars
+    for(; j >= 0; j--)
+      money[j] = 48; // 48 == '0'
+
+    /* debugging purposes XD
+    for(i = 0; i <= 5; i++)
+      printf("[%c]", money[i]);
+    puts("");
+    */
+
   }
 
   unsigned char i, j;
