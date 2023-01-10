@@ -5,7 +5,9 @@
 #include "open_file.h"
 
 #define init_check 0x2598
-#define final_check 0x3521
+// TODO:
+// why do you need to include the Tileset Type address?
+#define final_check 0x3522
 
 char checksum(const char *save_path) {
   //  calculate the cheksum of *.sav and return the value
@@ -17,13 +19,14 @@ char checksum(const char *save_path) {
     return 1;
 
   //  the verification algorithm starts at the adress
-  //  0x2598 to the  0x3522 and copy the result in
+  //  0x2598 to the 0x3522 and copy the result in
   //  0x3523
   fseek(file, init_check, SEEK_SET);
+
   for (int i = init_check; i <= final_check; i++)
     check -= fgetc(file);
 
   fclose(file);
 
-  return (char)check;
+  return (unsigned char)check;
 }

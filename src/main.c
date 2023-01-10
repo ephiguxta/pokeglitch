@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[argc + 1]) {
   //  the first generation checksum is an 8 bit value
-  char check;
+  unsigned char check;
 
   //  saving the path, so it doesn't always operate in argv
   char path_size = strlen(argv[1]);
@@ -36,13 +36,12 @@ int main(int argc, char *argv[argc + 1]) {
   pokedex_seen_owned(argv[1], Blastoise);
 
   check = checksum(save_path);
-
   printf("[%x]\n", check);
 
   //  the checksum value is inserted at the adress 0x3523
   apply_patch(save_path, check);
 
-  //  printf("%02hhx\n", check);
+  // printf("%02hhx\n", check);
 
   return 0;
 }
