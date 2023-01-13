@@ -7,6 +7,7 @@
 #include "change_name.h"
 #include "checksum.h"
 #include "pokedex_seen_owned.h"
+#include "insert_items.h"
 
 int main(int argc, char *argv[argc + 1]) {
   //  the first generation checksum is an 8 bit value
@@ -27,7 +28,7 @@ int main(int argc, char *argv[argc + 1]) {
   change_name(argv[1], test_name);
 
   // max digits for money is 7
-  char money[7] = "99999";
+  char money[7] = "12345";
   money[6] = '\0';
 
   change_money(argv[1], money);
@@ -35,13 +36,15 @@ int main(int argc, char *argv[argc + 1]) {
   // enabling Blastoise (index is 8) in pokédex seen
   pokedex_seen_owned(argv[1], Blastoise);
 
+  // getting a new item
+  char item_name[16] = "EarthBadge";
+  insert_items(argv[1], 2, item_name);
+
   check = checksum(save_path);
   printf("[%x]\n", check);
 
   //  the checksum value is inserted at the adress 0x3523
   apply_patch(save_path, check);
-
-  // printf("%02hhx\n", check);
 
   return 0;
 }
