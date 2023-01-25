@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # compiling the proj 
-gcc -Wall *.c -o main
+gcc -Wall -O2 *.c -o main
 
 # getting the old save
 cp ../rom/pokemon_red.sav .
