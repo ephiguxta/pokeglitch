@@ -49,7 +49,6 @@ int change_money(const char *save_path, char money[6]) {
            (money[j] - '0'));
 
     unsigned byte_parts;
-    unsigned byte_sieve;
 
     short temp_money[3] = {[2] = '\0'};
 
@@ -66,9 +65,7 @@ int change_money(const char *save_path, char money[6]) {
     byte_parts = (0x0000000f & (temp_money[0] - '0'));
     byte_parts |= (0x000000f0 & ((temp_money[1] - '0') << 4));
 
-    byte_sieve = (unsigned char)byte_parts;
-
-    fputc(byte_sieve, file);
+    fputc(byte_parts, file);
   }
 
   fclose(file);
