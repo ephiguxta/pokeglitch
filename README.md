@@ -25,4 +25,6 @@ If you don't change the line 25 in the main.c, the new player name will be:
 
 - [x] change player money.
 
+- [ ] limit name to valid chars.
+
 - [ ] ...
